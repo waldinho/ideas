@@ -5,7 +5,9 @@ import { Provider } from 'react-redux'
 import App from './components/App'
 import rootReducer from './reducers'
 
-const store = createStore(rootReducer)
+const persistedState = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')) : ''
+
+const store = createStore(rootReducer, persistedState)
 
 render(
   <Provider store={store}>
@@ -13,3 +15,7 @@ render(
   </Provider>,
   document.getElementById('root')
 )
+
+store.subscribe(()=>{ 
+    localStorage.setItem('reduxState', JSON.stringify(store.getState())) 
+})
