@@ -1,4 +1,4 @@
-let nextTodoId = 0
+let nextTodoId = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')).todos.length : 0
 export const addTodo = text => ({
   type: 'ADD_TODO',
   id: nextTodoId++,
