@@ -9,10 +9,10 @@ const Buttons = () => (
       All
     </FilterLink>
     <FilterLink filter={VisibilityFilters.SHOW_ACTIVE}>
-      Active
+      Good Ideas
     </FilterLink>
     <FilterLink filter={VisibilityFilters.SHOW_COMPLETED}>
-      Completed
+      What was I thinking?
     </FilterLink>
   </Wrapper>
 )

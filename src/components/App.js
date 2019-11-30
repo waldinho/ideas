@@ -11,8 +11,8 @@ const App = () => (
     <Wrapper>
       <AddIdea />
       <Buttons />
-      <VisibleIdeaList />
     </Wrapper>
+    <VisibleIdeaList />
     </>
 )
 

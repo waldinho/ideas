@@ -4,20 +4,25 @@ import { addIdea } from '../actions'
 import styled from 'styled-components';
 
 const AddIdea = ({ dispatch }) => {
-  let input
-
+  let title
+  let text
   return (
     <Wrapper>
       <div>
         <form onSubmit={e => {
           e.preventDefault()
-          if (!input.value.trim()) {
+          if (!title.value.trim()) {
             return
           }
-          dispatch(addIdea(input.value))
-          input.value = ''
+          if (!text.value.trim()) {
+            return
+          }
+          dispatch(addIdea(title.value, text.value))
+          title.value = ''
+          text.value = ''
         }}>
-          <input ref={node => input = node} />
+          <input ref={node => title = node} placeholder='Add title...'/>
+          <input ref={node => text = node} placeholder='Add text...' />
           <button type="submit">
             Add Idea
           </button>

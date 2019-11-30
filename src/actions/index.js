@@ -1,9 +1,18 @@
 let nextIdeaId = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')).ideas.length : 0
-export const addIdea = text => ({
+export const addIdea = (title, text) => ({
   type: 'ADD_IDEA',
   id: nextIdeaId++,
-  text
+  title,
+  text,
 })
+
+export const editIdea = (id, title, text) => ({
+  type: 'EDIT_IDEA',
+  id,
+  title,
+  text,
+})
+
 
 export const setVisibilityFilter = filter => ({
   type: 'SET_VISIBILITY_FILTER',

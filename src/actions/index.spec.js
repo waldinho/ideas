@@ -2,10 +2,11 @@ import * as actions from './index'
 
 describe('idea actions', () => {
   it('addIdea should create ADD_IDEA action', () => {
-    expect(actions.addIdea('Use Redux')).toEqual({
+    expect(actions.addIdea('Use Redux', 'Use redux text')).toEqual({
       type: 'ADD_IDEA',
       id: 0,
-      text: 'Use Redux'
+      title: 'Use Redux',
+      text: 'Use redux text',
     })
   })
 
