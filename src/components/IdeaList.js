@@ -6,7 +6,6 @@ import Idea from './Idea'
 
 const IdeaList = ({ ideas, toggleIdea }) => (
   <Wrapper>
-      <ul>
       {ideas.map(idea =>
         <Idea
           key={idea.id}
@@ -14,7 +13,6 @@ const IdeaList = ({ ideas, toggleIdea }) => (
           onClick={() => toggleIdea(idea.id)}
         />
       )}
-    </ul>
   </Wrapper>
 )
 
@@ -30,15 +28,13 @@ IdeaList.propTypes = {
 
 const Wrapper = styled.div`
 display: flex;
-justify-content: center;
-  ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin: .875rem auto;
-    padding: 1% 9% 0 8%;
-  } 
-  li {
+justify-content: space-evenly;
+flex-direction: row;
+flex-wrap: wrap;
+flex: 1 1 auto,
+margin: .875rem auto;
+padding: 1% 9% 0 8%;
+  .idea {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -47,7 +43,28 @@ justify-content: center;
     box-shadow: 0 0.125rem 0.125rem 0 rgba(0,0,0,0.1);
     padding: 0 2rem;
     background: #233143;
-    margin: 0 1rem;
+    margin: 1rem;
+    h3, p {
+      margin-bottom: 0;
+    }
+    input {
+      width: 100%;
+      color: #fff;
+      border: none;
+      background: #233143;
+      font-size: 18px;
+    }
+    input.focus {
+      border-bottom: 1px solid #0f81a3;
+    }
+    .options {
+      display: flex;
+      flex-direction: row;
+      small {
+        margin: 1rem 1rem 1rem 0;
+        color: #0f81a3;
+      }
+    }
   }
 `
 

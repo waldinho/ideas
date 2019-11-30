@@ -1,15 +1,5 @@
 import ideas from './ideas'
 
-const getCurrentDate = (separator='-')=> {
-
-let newDate = new Date()
-let date = newDate.getDate();
-let month = newDate.getMonth() + 1;
-let year = newDate.getFullYear();
-
-return `${date}${separator}${month<10?`0${month}`:`${month}`}${separator}${year}`
-}
-
 describe('ideas reducer', () => {
   it('should handle initial state', () => {
     expect(
@@ -23,14 +13,12 @@ describe('ideas reducer', () => {
         type: 'ADD_IDEA',
         title: 'Run the tests title',
         text: 'Run the tests',
-        date: getCurrentDate(),
         id: 0
       })
     ).toEqual([
       {
         title: 'Run the tests title',
         text: 'Run the tests',
-        date: getCurrentDate(),
         completed: false,
         id: 0
       }
@@ -41,7 +29,7 @@ describe('ideas reducer', () => {
         {
           title: 'Run the tests title',
           text: 'Run the tests',
-          date: getCurrentDate(),
+
           completed: false,
           id: 0
         }
@@ -49,20 +37,17 @@ describe('ideas reducer', () => {
         type: 'ADD_IDEA',
         title: 'Run the tests title',
         text: 'Use Redux',
-        date: getCurrentDate(),
         id: 1
       })
     ).toEqual([
       {
         title: 'Run the tests title',
         text: 'Run the tests',
-        date: getCurrentDate(),
         completed: false,
         id: 0
       }, {
         title: 'Run the tests title',
         text: 'Use Redux',
-        date: getCurrentDate(),
         completed: false,
         id: 1
       }
@@ -73,13 +58,13 @@ describe('ideas reducer', () => {
         {
           title: 'Run the tests title',
           text: 'Run the tests',
-          date: getCurrentDate(),
+
           completed: false,
           id: 0
         }, {
           title: 'Run the tests title',
           text: 'Use Redux',
-          date: getCurrentDate(),
+
           completed: false,
           id: 1
         }
@@ -93,20 +78,17 @@ describe('ideas reducer', () => {
       {
         title: 'Run the tests title',
         text: 'Run the tests',
-        date: getCurrentDate(),
         completed: false,
         id: 0
       }, {
         title: 'Run the tests title',
         text: 'Use Redux',
-        date: getCurrentDate(),
         completed: false,
         id: 1
       }, {
         title: 'Run the tests title',
         text: 'Fix the tests',
         completed: false,
-        date: getCurrentDate(),
         id: 2
       }
     ])
@@ -118,13 +100,13 @@ describe('ideas reducer', () => {
         {
           title: 'Run the tests title',
           text: 'Run the tests',
-          date: getCurrentDate(),
+
           completed: false,
           id: 1
         }, {
           title: 'Run the tests title',
           text: 'Use Redux',
-          date: getCurrentDate(),
+
           completed: false,
           id: 0
         }
@@ -136,13 +118,11 @@ describe('ideas reducer', () => {
       {
         title: 'Run the tests title',
         text: 'Run the tests',
-        date: getCurrentDate(),
         completed: true,
         id: 1
       }, {
         title: 'Run the tests title',
         text: 'Use Redux',
-        date: getCurrentDate(),
         completed: false,
         id: 0
       }

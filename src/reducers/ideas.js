@@ -1,12 +1,4 @@
-const getCurrentDate = (separator='-')=> {
 
-let newDate = new Date()
-let date = newDate.getDate();
-let month = newDate.getMonth() + 1;
-let year = newDate.getFullYear();
-
-return `${date}${separator}${month<10?`0${month}`:`${month}`}${separator}${year}`
-}
 
 const ideas = (state = [], action) => {
   switch (action.type) {
@@ -17,7 +9,7 @@ const ideas = (state = [], action) => {
           id: action.id,
           title: action.title,
           text: action.text,
-          date: getCurrentDate(),
+          date: action.date,
           completed: false
         }
       ]

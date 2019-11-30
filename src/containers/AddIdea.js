@@ -3,6 +3,16 @@ import { connect } from 'react-redux'
 import { addIdea } from '../actions'
 import styled from 'styled-components';
 
+const getCurrentDate = (separator='-')=> {
+
+let newDate = new Date()
+let date = newDate.getDate();
+let month = newDate.getMonth() + 1;
+let year = newDate.getFullYear();
+
+return `${date}${separator}${month<10?`0${month}`:`${month}`}${separator}${year}`
+}
+
 const AddIdea = ({ dispatch }) => {
   let title
   let text
@@ -17,12 +27,12 @@ const AddIdea = ({ dispatch }) => {
           if (!text.value.trim()) {
             return
           }
-          dispatch(addIdea(title.value, text.value))
+          dispatch(addIdea(title.value, text.value, getCurrentDate()))
           title.value = ''
           text.value = ''
         }}>
-          <input ref={node => title = node} placeholder='Add title...'/>
-          <input ref={node => text = node} placeholder='Add text...' />
+          <input ref={node => title = node} placeholder='Add title...' required/>
+          <input ref={node => text = node} placeholder='Add description...' required/>
           <button type="submit">
             Add Idea
           </button>
@@ -33,15 +43,15 @@ const AddIdea = ({ dispatch }) => {
 }
 
 const Wrapper = styled.div`
-margin-top: 25vh;
+margin: 22vh 0 -3vh 0;
 padding: 0 0 10% 0;
 display: flex;
-flex-direction: row;
+flex-direction: column;
 justify-content: center;
   button {
-    width:38%;
+    margin: 1% 4%;
+    width: 91%;
     border: 1px solid #fff;
-    margin: 0 0 0 2%;
   }
 }
 `

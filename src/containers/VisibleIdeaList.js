@@ -5,8 +5,6 @@ import { VisibilityFilters } from '../actions'
 
 const getVisibleIdeas = (ideas, filter) => {
   switch (filter) {
-    case VisibilityFilters.SHOW_ALL:
-      return ideas
     case VisibilityFilters.SHOW_COMPLETED:
       return ideas.filter(t => t.completed)
     case VisibilityFilters.SHOW_ACTIVE:

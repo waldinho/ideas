@@ -5,9 +5,6 @@ import { VisibilityFilters } from '../actions'
 
 const Buttons = () => (
   <Wrapper>
-    <FilterLink filter={VisibilityFilters.SHOW_ALL}>
-      All
-    </FilterLink>
     <FilterLink filter={VisibilityFilters.SHOW_ACTIVE}>
       Good Ideas
     </FilterLink>
