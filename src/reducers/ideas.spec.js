@@ -1,16 +1,16 @@
-import todos from './todos'
+import ideas from './ideas'
 
-describe('todos reducer', () => {
+describe('ideas reducer', () => {
   it('should handle initial state', () => {
     expect(
-      todos(undefined, {})
+      ideas(undefined, {})
     ).toEqual([])
   })
 
-  it('should handle ADD_TODO', () => {
+  it('should handle ADD_IDEA', () => {
     expect(
-      todos([], {
-        type: 'ADD_TODO',
+      ideas([], {
+        type: 'ADD_IDEA',
         text: 'Run the tests',
         id: 0
       })
@@ -23,14 +23,14 @@ describe('todos reducer', () => {
     ])
 
     expect(
-      todos([
+      ideas([
         {
           text: 'Run the tests',
           completed: false,
           id: 0
         }
       ], {
-        type: 'ADD_TODO',
+        type: 'ADD_IDEA',
         text: 'Use Redux',
         id: 1
       })
@@ -47,7 +47,7 @@ describe('todos reducer', () => {
     ])
 
     expect(
-      todos([
+      ideas([
         {
           text: 'Run the tests',
           completed: false,
@@ -58,7 +58,7 @@ describe('todos reducer', () => {
           id: 1
         }
       ], {
-        type: 'ADD_TODO',
+        type: 'ADD_IDEA',
         text: 'Fix the tests',
         id: 2
       })
@@ -79,9 +79,9 @@ describe('todos reducer', () => {
     ])
   })
 
-  it('should handle TOGGLE_TODO', () => {
+  it('should handle TOGGLE_IDEA', () => {
     expect(
-      todos([
+      ideas([
         {
           text: 'Run the tests',
           completed: false,
@@ -92,7 +92,7 @@ describe('todos reducer', () => {
           id: 0
         }
       ], {
-        type: 'TOGGLE_TODO',
+        type: 'TOGGLE_IDEA',
         id: 1
       })
     ).toEqual([

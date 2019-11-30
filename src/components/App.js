@@ -1,14 +1,26 @@
 import React from 'react'
-import Footer from './Footer'
+import styled from 'styled-components';
+import Header from './Header'
+import Buttons from './Buttons'
 import AddIdea from '../containers/AddIdea'
 import VisibleIdeaList from '../containers/VisibleIdeaList'
 
 const App = () => (
-  <div>
-    <AddIdea />
-    <VisibleIdeaList />
-    <Footer />
-  </div>
+    <>
+    <Header />
+    <Wrapper>
+      <AddIdea />
+      <Buttons />
+      <VisibleIdeaList />
+    </Wrapper>
+    </>
 )
 
+const Wrapper = styled.div`
+  text-align: center;
+  max-width: 320px;
+  margin: 0 auto;
+`
+
 export default App
+

@@ -1,21 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Todo = ({ onClick, completed, text }) => (
+const Idea = ({ onClick, completed, text }) => (
   <li
     onClick={onClick}
     style={{
-      textDecoration: completed ? 'line-through' : 'none'
+      opacity: completed ? '0.5' : '1'
     }}
   >
     {text}
   </li>
 )
 
-Todo.propTypes = {
+Idea.propTypes = {
   onClick: PropTypes.func.isRequired,
   completed: PropTypes.bool.isRequired,
   text: PropTypes.string.isRequired
 }
 
-export default Todo
+export default Idea

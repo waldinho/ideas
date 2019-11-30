@@ -1,10 +1,10 @@
 import React from 'react'
+import styled from 'styled-components';
 import FilterLink from '../containers/FilterLink'
 import { VisibilityFilters } from '../actions'
 
-const Footer = () => (
-  <div>
-    <span>Show: </span>
+const Buttons = () => (
+  <Wrapper>
     <FilterLink filter={VisibilityFilters.SHOW_ALL}>
       All
     </FilterLink>
@@ -14,7 +14,17 @@ const Footer = () => (
     <FilterLink filter={VisibilityFilters.SHOW_COMPLETED}>
       Completed
     </FilterLink>
-  </div>
+  </Wrapper>
 )
 
-export default Footer
+const Wrapper = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+  button {
+    margin: 1% 4%;
+    width: 91%;
+  }
+`
+
+export default Buttons
