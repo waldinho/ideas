@@ -1,9 +1,9 @@
 import * as actions from './index'
 
-describe('todo actions', () => {
-  it('addTodo should create ADD_TODO action', () => {
-    expect(actions.addTodo('Use Redux')).toEqual({
-      type: 'ADD_TODO',
+describe('idea actions', () => {
+  it('addIdea should create ADD_IDEA action', () => {
+    expect(actions.addIdea('Use Redux')).toEqual({
+      type: 'ADD_IDEA',
       id: 0,
       text: 'Use Redux'
     })
@@ -16,9 +16,9 @@ describe('todo actions', () => {
     })
   })
 
-  it('toggleTodo should create TOGGLE_TODO action', () => {
-    expect(actions.toggleTodo(1)).toEqual({
-      type: 'TOGGLE_TODO',
+  it('toggleIdea should create TOGGLE_IDEA action', () => {
+    expect(actions.toggleIdea(1)).toEqual({
+      type: 'TOGGLE_IDEA',
       id: 1
     })
   })

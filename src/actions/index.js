@@ -1,7 +1,7 @@
-let nextTodoId = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')).todos.length : 0
-export const addTodo = text => ({
-  type: 'ADD_TODO',
-  id: nextTodoId++,
+let nextIdeaId = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')).ideas.length : 0
+export const addIdea = text => ({
+  type: 'ADD_IDEA',
+  id: nextIdeaId++,
   text
 })
 
@@ -10,8 +10,8 @@ export const setVisibilityFilter = filter => ({
   filter
 })
 
-export const toggleTodo = id => ({
-  type: 'TOGGLE_TODO',
+export const toggleIdea = id => ({
+  type: 'TOGGLE_IDEA',
   id
 })
 
