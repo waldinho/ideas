@@ -34,4 +34,4 @@ const ideas = (state = [], action) => {
   }
 }
 
-export default ideas
+export default ideas 
