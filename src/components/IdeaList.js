@@ -63,6 +63,7 @@ padding: 1% 9% 0 8%;
       small {
         margin: 1rem 1rem 1rem 0;
         color: #0f81a3;
+        cursor: pointer;
       }
     }
   }
