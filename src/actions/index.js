@@ -1,4 +1,5 @@
 let nextIdeaId = localStorage.getItem('reduxState') ? JSON.parse(localStorage.getItem('reduxState')).ideas.length : 0
+console.log('nextIdeaId')
 export const addIdea = (title, text, date) => ({
   type: 'ADD_IDEA',
   id: nextIdeaId++,
