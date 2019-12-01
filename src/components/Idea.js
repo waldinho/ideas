@@ -25,7 +25,7 @@ const Idea = ({ dispatch, onClick, completed, title, text, date, id }) => {
       {isEdit ? 
         <>
         <input type="text" value={title} onChange={handleTitleChange} placeholder={title} className='focus' />
-        <input type="text" value={text} onChange={handleTextChange} placeholder={text} maxLength="500"/>
+        <input type="text" value={text} onChange={handleTextChange} placeholder={text} maxLength="140"/>
         <div className='options'>
           <small onClick={editMode}>Save</small>
         </div>
