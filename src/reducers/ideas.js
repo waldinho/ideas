@@ -13,6 +13,16 @@ const ideas = (state = [], action) => {
           completed: false
         }
       ]
+    case 'EDIT_IDEA':
+      return [
+        Object.assign({}, action.id, {
+          id: action.id,
+          title: action.title,
+          text: action.text,
+          date: action.date,
+          completed: false
+        })
+      ]
     case 'TOGGLE_IDEA':
       return state.map(idea =>
         (idea.id === action.id)

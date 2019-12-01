@@ -1,17 +1,17 @@
 import React, {useState} from 'react'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import { editIdea } from '../actions'
 
-const Idea = ({ onClick, completed, title, text, date }) => {
-  const [ideaTitle, setIdeaTitle] = useState(title);
-  const [ideaText, setIdeaText] = useState(text);
+const Idea = ({ dispatch, onClick, completed, title, text, date, id }) => {
   const [isEdit, setIsEdit] = useState(false);
   const handleTitleChange = event => {
-    const {value} = event.target
-    setIdeaTitle(value)
+    title = event.target.value
+    dispatch(editIdea(title, text, date, id))
   }
   const handleTextChange = event => {
-    const {value} = event.target
-    setIdeaText(value)
+    text = event.target.value
+    dispatch(editIdea(title, text, date, id))
   }
   const editMode = () => {
     setIsEdit(!isEdit)
@@ -24,16 +24,16 @@ const Idea = ({ onClick, completed, title, text, date }) => {
       >
       {isEdit ? 
         <>
-        <input type="text" value={ideaTitle} onChange={handleTitleChange} placeholder={ideaTitle} className='focus' />
-        <input type="text" value={ideaText} onChange={handleTextChange} placeholder={ideaText}/>
+        <input type="text" value={title} onChange={handleTitleChange} placeholder={title} className='focus' />
+        <input type="text" value={text} onChange={handleTextChange} placeholder={text}/>
         <div className='options'>
           <small onClick={editMode}>Save</small>
         </div>
         </>
         :
         <>
-        <h3>{ideaTitle}</h3>
-        <p>{ideaText}</p>
+        <h3>{title}</h3>
+        <p>{text}</p>
         <p>{date}</p>
         <div className='options'>
           <small onClick={editMode}>Edit</small>
@@ -52,4 +52,4 @@ Idea.propTypes = {
   text: PropTypes.string.isRequired
 }
 
-export default Idea
+export default connect()(Idea)

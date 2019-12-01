@@ -7,6 +7,14 @@ export const addIdea = (title, text, date) => ({
   date,
 })
 
+export const editIdea = (title, text, date, id) => ({
+  type: 'EDIT_IDEA',
+  id,
+  title,
+  text,
+  date,
+})
+
 export const setVisibilityFilter = filter => ({
   type: 'SET_VISIBILITY_FILTER',
   filter
@@ -18,7 +26,6 @@ export const toggleIdea = id => ({
 })
 
 export const VisibilityFilters = {
-  SHOW_ALL: 'SHOW_ALL',
   SHOW_COMPLETED: 'SHOW_COMPLETED',
   SHOW_ACTIVE: 'SHOW_ACTIVE'
 }
