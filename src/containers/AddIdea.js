@@ -31,8 +31,8 @@ const AddIdea = ({ dispatch }) => {
           title.value = ''
           text.value = ''
         }}>
-          <input ref={node => title = node} placeholder='Add title...' required/>
-          <input ref={node => text = node} placeholder='Add description...' required/>
+          <input autoFocus ref={node => title = node} placeholder='Add title...' required/>
+          <input ref={node => text = node} placeholder='Add description...' required maxLength="500"/>
           <button type="submit">
             Add Idea
           </button>

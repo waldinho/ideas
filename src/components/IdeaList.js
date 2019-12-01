@@ -1,20 +1,68 @@
-import React from 'react'
+import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components';
 
 import Idea from './Idea'
 
-const IdeaList = ({ ideas, toggleIdea }) => (
-  <Wrapper>
-      {ideas.map(idea =>
+const IdeaList = ({ ideas, toggleIdea }) => {
+  const [sort, setSort] = useState(false);
+  const sortChange = () => {
+    setSort(!sort)
+  }
+  const dynamicSort = (property) => {
+    var sortOrder = 1;
+    if(property[0] === "-") {
+      sortOrder = -1;
+      property = property.substr(1);
+    }
+    return function (a,b) {
+      if(sortOrder === -1){
+        return b[property].localeCompare(a[property]);
+      } else {
+        return a[property].localeCompare(b[property]);
+      }        
+    }
+  }
+  const sortABC = () => {
+    return (
+      <>
+      {ideas.sort(dynamicSort("title")).map(idea =>
         <Idea
           key={idea.id}
           {...idea}
           onClick={() => toggleIdea(idea.id)}
         />
       )}
-  </Wrapper>
-)
+      </>
+    )
+  }
+  const sortNum = () => {
+    return (
+      <>
+      {ideas.sort(function(a, b){
+        var aa = a.date.split('/').reverse().join(),
+            bb = b.date.split('/').reverse().join();
+        return aa < bb ? -1 : (aa > bb ? 1 : 0);
+        }).map(idea =>
+        <Idea
+          key={idea.id}
+          {...idea}
+          onClick={() => toggleIdea(idea.id)}
+        />
+      )}
+      </>
+    )
+  } 
+  const sortText = sort ? 'Newest first' : 'Sort alphabetically'
+  return (
+    <>
+    <p onClick={sortChange} className='sort'>{sortText}</p>
+    <Wrapper>
+      {sort ? sortABC() : sortNum()}
+    </Wrapper>
+    </>
+  )
+}
 
 IdeaList.propTypes = {
   ideas: PropTypes.arrayOf(PropTypes.shape({
@@ -34,6 +82,7 @@ flex-wrap: wrap;
 flex: 1 1 auto,
 margin: .875rem auto;
 padding: 1% 9% 0 8%;
+text-align: left;
   .idea {
     display: flex;
     flex-direction: column;
